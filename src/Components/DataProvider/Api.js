@@ -22,6 +22,13 @@ class Api {
     }).then(this._handserveresponse);
   }
 }
+updateCard(cardId, like) {
+    return fetch(`${this._baseUrl}/updateCard/${cardId}`, {
+      method: "PATCH",
+      headers: this._headers,
+      body: JSON.stringify({ like}),
+    }).then(this._handserveresponse);
+  } 
 
 const api = new Api("https://api-requests-lcy6.onrender.com", {
   "Content-Type": "application/json",

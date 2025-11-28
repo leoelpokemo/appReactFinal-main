@@ -23,6 +23,17 @@ function App() {
 
     loadCards();
   }, []);
+
+  async function handleUpdateCards(card) {
+    const likeinvertido = !cards.like;
+    console.log(likeinvertido);
+    await api
+      .updateCard(card_id, likeinvertido )
+
+      .catch((error) => {
+        console.error("Error updating card:", error);
+      });
+  }
   
   useEffect(() => {
   console.log("CARDS ACTUALIZADO:", cards);
